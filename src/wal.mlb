@@ -1,0 +1,6 @@
+(* MLB for the sml-wal library: the Basis plus the WAL sources. The library has
+ * no dependencies. Consumers reference this file to bring `structure Wal` into
+ * scope. *)
+$(SML_LIB)/basis/basis.mlb
+wal.sig
+wal.sml

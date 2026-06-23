@@ -1,0 +1,15 @@
+(* Test executable basis: the WAL library plus the harness, helpers, and the
+   per-feature suites (CRC32, round-trip, framing, checkpoint, determinism). *)
+$(SML_LIB)/basis/basis.mlb
+
+../src/wal.mlb
+
+harness.sml
+support.sml
+test_crc32.sml
+test_roundtrip.sml
+test_framing.sml
+test_checkpoint.sml
+test_determinism.sml
+entry.sml
+main.sml
