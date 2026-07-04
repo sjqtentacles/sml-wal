@@ -11,9 +11,9 @@ struct
   (* A 4-byte big-endian field from a Word32 (the on-wire field type). We work
      in Word32 throughout rather than going via `int`, because MLton's default
      `Int` is only 32 bits, so `Word32.toInt` of a value with the high bit set
-     (a CRC, typically) raises `Overflow`. Poly/ML's `Int` is arbitrary
-     precision and would not, so staying in Word32 keeps the tests identical
-     across both compilers. *)
+     (a CRC, typically) raises `Overflow`. Poly/ML's `Int` is 63-bit and would
+     not (both defaults are fixed-width -- only `IntInf` is arbitrary precision),
+     so staying in Word32 keeps the tests identical across both compilers. *)
   fun be32w (w : Word32.word) : string =
     let
       fun byte k =

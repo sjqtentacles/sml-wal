@@ -130,7 +130,9 @@ committed entry.
 All checksum and field arithmetic is done in **`Word32`** (exactly 32 bits), not
 via `int`. This matters because MLton's default `Int` is **32-bit**, so
 `Word32.toInt` of a value with the high bit set (a CRC, typically) raises
-`Overflow`, whereas Poly/ML's `Int` is arbitrary precision. Staying in `Word32`
+`Overflow`, whereas Poly/ML's `Int` is 63-bit and holds it. (Both defaults are
+fixed-width — 32-bit MLton, 63-bit Poly/ML; only `IntInf` is arbitrary
+precision.) Staying in `Word32`
 — and bounds-checking a record's declared length against the remaining bytes
 *before* narrowing it to `int` — keeps `encode`/`decode` byte-identical and
 makes a crafted oversized length surface as `Corrupt` (not `Overflow`) on both
